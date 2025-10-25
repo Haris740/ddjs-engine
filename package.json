@@ -1,0 +1,93 @@
+{
+  "name": "ddjs-engine",
+  "version": "2.0.0",
+  "description": "DDJS 2D Game Engine - Modular TypeScript Edition",
+  "type": "module",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/src/index.js",
+      "types": "./dist/src/index.d.ts"
+    },
+    "./core": {
+      "import": "./dist/src/core/index.js",
+      "types": "./dist/src/core/index.d.ts"
+    },
+    "./entities": {
+      "import": "./dist/src/entities/index.js",
+      "types": "./dist/src/entities/index.d.ts"
+    },
+    "./systems": {
+      "import": "./dist/src/systems/index.js",
+      "types": "./dist/src/systems/index.d.ts"
+    }
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build:ts": "tsc",
+    "copy:html": "copyfiles -u 1 \"examples/**/*.html\" dist/examples",
+    "copy:assets": "copyfiles -u 1 \"examples/**/*.{css,png,jpg,jpeg,gif,svg,json}\" dist",
+    "build": "npm run clean && npm run build:ts && npm run copy:html && npm run copy:assets",
+    "build:prod": "tsc -p tsconfig.build.json && npm run copy:html && npm run copy:assets",
+    "watch:ts": "tsc --watch",
+    "watch:html": "copyfiles -u 1 \"examples/**/*.html\" dist --watch",
+    "dev": "concurrently \"npm:watch:ts\" \"npm:watch:html\" --names \"TS,HTML\" --prefix-colors \"blue,green\"",
+    "serve": "live-server dist --port=8080 --entry-file=examples/basic-shapes/index.html",
+    "start": "npm run build && npm run serve",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\" \"examples/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\" \"examples/**/*.ts\"",
+    "type-check": "tsc --noEmit",
+    "prepublishOnly": "npm run build:prod"
+  },
+  "keywords": [
+    "game-engine",
+    "2d",
+    "canvas",
+    "typescript",
+    "modular",
+    "game-development",
+    "html5",
+    "physics",
+    "particles"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Haris740/ddjs-engine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Haris740/ddjs-engine/issues"
+  },
+  "homepage": "https://github.com/Haris740/ddjs-engine#readme",
+  "files": [
+    "dist/src",
+    "dist/src/**/*",
+    "dist/src/**/*.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "concurrently": "^8.2.2",
+    "copyfiles": "^2.4.1",
+    "eslint": "^8.50.0",
+    "jest": "^29.5.0",
+    "live-server": "^1.2.2",
+    "prettier": "^3.0.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

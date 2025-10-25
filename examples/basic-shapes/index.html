@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDJS - Basic Shapes Example</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        #game-container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        canvas {
+            border: 2px solid #333;
+            border-radius: 5px;
+            display: block;
+            margin: 20px auto;
+        }
+        
+        .info {
+            text-align: left;
+            color: #666;
+            margin-top: 10px;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 5px;
+        }
+        
+        .controls {
+            margin-top: 10px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        button:hover {
+            background: #5568d3;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <h1>🎮 DDJS Basic Shapes Example</h1>
+        <canvas id="gameCanvas"></canvas>
+        <div class="info">
+            <strong>Controls:</strong><br>
+            • Click and drag shapes to move them<br>
+            • Press SPACE to add random shapes<br>
+            • Watch the physics in action!
+        </div>
+        <div class="controls">
+            <button id="addRect">Add Rectangle</button>
+            <button id="addCircle">Add Circle</button>
+            <button id="addTriangle">Add Triangle</button>
+            <button id="clear">Clear All</button>
+        </div>
+    </div>
+    
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
