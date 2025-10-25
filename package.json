@@ -1,6 +1,6 @@
 {
   "name": "ddjs-engine",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "DDJS 2D Game Engine - Modular TypeScript Edition",
   "type": "module",
   "main": "./dist/src/index.js",
