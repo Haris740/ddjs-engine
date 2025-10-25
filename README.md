@@ -17,6 +17,10 @@ A modular 2D game engine built with TypeScript for HTML5 Canvas games.
 
 `npm install ddjs-engine`
 
+OR
+
+`yarn add ddjs-engine`
+
 ## Quick Start
 
 ```TypeScript 
